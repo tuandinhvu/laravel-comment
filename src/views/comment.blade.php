@@ -15,7 +15,7 @@ if (!empty($url)) {
         </div>
         <div class="panel-body">
             @if(auth()->check())
-            <form method="post" action="{{route('sendComment')}}">
+            <form method="post" action="{{route('sendComment', ['source_id'=>$id, 'type'=>$type])}}">
                 {{csrf_field()}}
                 <textarea class="form-control" name="content" placeholder="Viết bình luận..." rows="3"></textarea>
                 <br>
