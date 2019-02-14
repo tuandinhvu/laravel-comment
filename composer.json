@@ -1,0 +1,7 @@
+{
+    "name": "fastup/comment",
+    "description": "Comment package for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "require": {}
+}
