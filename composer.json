@@ -1,7 +1,12 @@
 {
-    "name": "fastup/comment",
-    "description": "Comment package for Laravel",
-    "type": "library",
-    "license": "MIT",
-    "require": {}
+  "name": "fastup/comment",
+  "description": "Comment package for Laravel",
+  "type": "library",
+  "license": "MIT",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Fastup\\Comment\\": "src/"
+    }
+  }
 }
