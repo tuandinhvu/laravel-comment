@@ -18,7 +18,7 @@ class CommentController extends Controller
         $comment->content   =   $content;
         $comment->user_id   =   auth()->user()->id;
         $comment->source_id =   request('source_id');
-        $comment->type  =   request('type_id');
+        $comment->type  =   request('type');
         $comment->url   =   request('url','');
         $comment->created_at    =   Carbon::now();
         $comment->save();
