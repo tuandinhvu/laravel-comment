@@ -8,7 +8,7 @@ use App\Services\ProvinceService;
 use Carbon\Carbon;
 use Fastup\Comment\Comment;
 use Illuminate\Http\Request;
-
+use App\RealEstate;
 class CommentController extends Controller
 {
     public function create(){
