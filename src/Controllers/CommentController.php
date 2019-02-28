@@ -22,6 +22,17 @@ class CommentController extends Controller
         $comment->url   =   request('url','');
         $comment->created_at    =   Carbon::now();
         $comment->save();
+        if(function_exists('notify')){
+            switch ($comment->type){
+                case 'realestate':
+                    $user_id    =   ($realestate = RealEstate::find($comment->source_id))?RealEstate::find($comment->source_id)->posted_by:auth()->user()->id;
+                    if($user_id != auth()->user()->id)
+                        notify([$user_id], 'Bình luận mới', (auth()->user()->userinfo?auth()->user()->userinfo->full_name:auth()->user()->name).' vừa bình luận về bài viết của bạn.', route('detail-real-estate', ['slug'=>$realestate->slug.'-'.$realestate->id]));
+                    break;
+                case 'user':
+                    $user_id    =   $comment->source_id;
+            }
+        }
         session()->forget('comment.id');
         session()->forget('comment.type');
         return redirect()->back();
