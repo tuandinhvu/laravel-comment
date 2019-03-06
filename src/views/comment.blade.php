@@ -31,7 +31,7 @@ if (!empty($url)) {
                 @foreach($comments as $comment)
                     <li class="media">
                         <a href="#" class="pull-left">
-                            <img src="{{$comment->user()->first()->avatar()}}" class="img-responsive" />
+                            <img src="{{$comment->user()->first()->avatar()}}" data-id="{{$comment->user()->first()->id}}" class="img-responsive" />
                         </a>
                         <div class="media-body">
                                     <span class="text-muted pull-right">
